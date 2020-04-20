@@ -13,7 +13,7 @@ terraform {
 
  0008004401837
  how to use Terraform as a team
- jenkins personal token from github : 3189876af59bc8271b5dbfa15821405ff01c3748
+ 
  
  Requirements:
 
