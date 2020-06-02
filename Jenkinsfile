@@ -24,6 +24,20 @@ try {
       }
     }
   }
+  // SonarQube
+  stage('Sonarqube') {
+    environment {
+        scannerHome = tool 'SonarScanner'
+    }
+    steps {
+        withSonarQubeEnv('sonarqube') {
+            sh "${scannerHome}/bin/sonar-scanner"
+        }
+        timeout(time: 10, unit: 'MINUTES') {
+            waitForQualityGate abortPipeline: true
+        }
+    }
+}
 
   // Run terraform plan
   stage('plan') {
