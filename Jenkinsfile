@@ -19,11 +19,12 @@ try {
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
         ansiColor('xterm') {
-          sh 'terraform init'
+          bat 'terraform init'
         }
       }
     }
   }
+ 
 
   // Run terraform plan
   stage('plan') {
@@ -35,7 +36,7 @@ try {
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
         ansiColor('xterm') {
-          sh 'terraform plan'
+          bat 'terraform plan'
         }
       }
     }
@@ -53,7 +54,7 @@ try {
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
           ansiColor('xterm') {
-            sh 'terraform apply -auto-approve'
+            bat 'terraform apply -auto-approve'
           }
         }
       }
@@ -69,7 +70,7 @@ try {
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
           ansiColor('xterm') {
-            sh 'terraform show'
+            bat 'terraform show'
           }
         }
       }
@@ -89,3 +90,4 @@ finally {
     currentBuild.result = 'SUCCESS'
   }
 }
+ 
